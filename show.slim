@@ -1,0 +1,16 @@
+title= @title
+
+css:
+  body { font-size: 150%; }
+  .sodatext { display: none; }
+  .sodatext.current { display: block; }
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+javascript:
+  $(function() {
+    $(".sodatext:first").show();
+  });
+
+body
+  == @items.map(&:to_html).join

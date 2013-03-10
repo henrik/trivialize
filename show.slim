@@ -18,11 +18,8 @@ javascript:
     var min = 1;
     var max = $items.length;
 
-    currentIndex = 1;
-    if (location.hash) {
-      currentIndex = location.hash.slice(1);
-    }
-    show(currentIndex);
+    setIndexFromHash();
+    $(window).bind("hashchange", setIndexFromHash);
 
     $(document).keydown(function(e) {
       if(e.keyCode == LEFT_ARROW) {
@@ -39,6 +36,11 @@ javascript:
       location.hash = index;
       $items.hide();
       $items.eq(index-1).show();
+    }
+
+    function setIndexFromHash() {
+      currentIndex = parseInt(location.hash.slice(1), 10) || 1;
+      show(currentIndex);
     }
   });
 

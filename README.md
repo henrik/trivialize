@@ -1,4 +1,8 @@
-WiP
+A 10-foot UI webapp for showing IMDb trivia.
+
+Visit e.g. <http://trivialize.nyh.name/tt0116629> for *Independence Day*. Then use the arrow keys.
+
+Extremely WiP!
 
 ## TODO
 

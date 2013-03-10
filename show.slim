@@ -15,10 +15,14 @@ javascript:
   $(function() {
     var $items = $(".sodatext");
 
-    var min = 0;
+    var min = 1;
     var max = $items.length;
 
-    show(0);
+    currentIndex = 1;
+    if (location.hash) {
+      currentIndex = location.hash.slice(1);
+    }
+    show(currentIndex);
 
     $(document).keydown(function(e) {
       if(e.keyCode == LEFT_ARROW) {
@@ -29,11 +33,12 @@ javascript:
     });
 
     function show(index) {
-      if (index < min) index = min;
-      if (index > max) index = max;
+      if (index < min) index = max;
+      if (index > max) index = min;
       currentIndex = index;
+      location.hash = index;
       $items.hide();
-      $items.eq(index).show();
+      $items.eq(index-1).show();
     }
   });
 
